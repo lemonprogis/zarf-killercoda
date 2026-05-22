@@ -27,8 +27,8 @@ You should see `0.0.0.0:8080` in the output.
 
 ## Open it in your browser
 
-In Killercoda, click the **+** above the terminal, choose **Select port from list...**,
-and enter **`8080`** — a new tab opens onto the running arcade.
+In Killercoda, click the **menu icon** in the top-right corner of the page and choose
+**Traffic / Ports**. Enter **`8080`** — a new tab opens onto the running arcade.
 
 ## Play DOOM
 
