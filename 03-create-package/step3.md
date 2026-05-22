@@ -23,8 +23,17 @@ You should see something like `zarf-package-podinfo-amd64-0.1.0.tar.zst`.
 
 ## Peek inside without deploying
 
+`zarf package inspect` has subcommands for different views. Show the `zarf.yaml` that was
+baked into the tarball:
+
 ```bash
-zarf package inspect /root/podinfo-package/zarf-package-podinfo-amd64-0.1.0.tar.zst
+zarf package inspect definition /root/podinfo-package/zarf-package-podinfo-amd64-0.1.0.tar.zst
+```{{exec}}
+
+And the bundled images:
+
+```bash
+zarf package inspect images /root/podinfo-package/zarf-package-podinfo-amd64-0.1.0.tar.zst
 ```{{exec}}
 
 This is what makes Zarf packages portable — copy that `.tar.zst` to an airgapped machine

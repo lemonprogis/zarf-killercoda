@@ -11,13 +11,24 @@ so it can remove them cleanly later.
 
 ## Inspect package contents
 
+`zarf package inspect` is now a parent command with subcommands for different views of a
+package. To dump the package's `zarf.yaml`:
+
 ```bash
-zarf package inspect oci://ghcr.io/zarf-dev/packages/dos-games:1.3.0 \
-  --key=https://zarf.dev/cosign.pub
+zarf package inspect definition oci://ghcr.io/zarf-dev/packages/dos-games:1.3.0
 ```{{exec}}
 
-This prints the package's `zarf.yaml` — its components, images, and manifests — without
-deploying anything.
+Or list just the container images it ships:
+
+```bash
+zarf package inspect images oci://ghcr.io/zarf-dev/packages/dos-games:1.3.0
+```{{exec}}
+
+Other useful subcommands: `sbom`, `manifests`, `values-files`. Run `zarf package inspect --help`
+for the full list. None of these deploy anything.
+
+> Inspect operations are read-only and don't run any code from the package — we already
+> verified the signature with `--key` on `deploy` in step 1, which is where it matters.
 
 ## Stop the port-forward
 
