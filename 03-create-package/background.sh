@@ -4,6 +4,13 @@
 
 set -e
 
+# --- kubectl ---
+if ! command -v kubectl >/dev/null 2>&1; then
+  KUBECTL_VERSION=$(curl -sL https://dl.k8s.io/release/stable.txt)
+  curl -sL "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl" -o /usr/local/bin/kubectl
+  chmod +x /usr/local/bin/kubectl
+fi
+
 # --- zarf CLI ---
 if ! command -v zarf >/dev/null 2>&1; then
   ZARF_VERSION=$(curl -sIX HEAD https://github.com/zarf-dev/zarf/releases/latest \
