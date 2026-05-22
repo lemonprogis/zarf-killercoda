@@ -1,0 +1,37 @@
+{
+  "title": "Zarf: Create Your First Package",
+  "description": "Write a zarf.yaml from scratch, discover the images it needs, build a package tarball, and deploy it into the cluster.",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "steps": [
+      {
+        "title": "Write zarf.yaml",
+        "text": "step1.md",
+        "verify": "step1-verify.sh"
+      },
+      {
+        "title": "Discover Images",
+        "text": "step2.md"
+      },
+      {
+        "title": "Build the Package",
+        "text": "step3.md",
+        "verify": "step3-verify.sh"
+      },
+      {
+        "title": "Deploy Your Package",
+        "text": "step4.md",
+        "verify": "step4-verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}

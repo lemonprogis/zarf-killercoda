@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Zarf build artifacts (from local testing of scenarios)
+zarf-package-*.tar.zst
+zarf-init-*.tar.zst
+sboms/

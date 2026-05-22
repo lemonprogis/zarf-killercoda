@@ -1,0 +1,32 @@
+{
+  "title": "Zarf: Deploy the Retro Arcade",
+  "description": "Deploy the dos-games Zarf package from an OCI registry into a Zarf-initialized Kubernetes cluster and play DOOM in your browser.",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "steps": [
+      {
+        "title": "Deploy the dos-games Package",
+        "text": "step1.md",
+        "verify": "step1-verify.sh"
+      },
+      {
+        "title": "Connect to the Arcade",
+        "text": "step2.md"
+      },
+      {
+        "title": "Inspect and Remove",
+        "text": "step3.md",
+        "verify": "step3-verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}

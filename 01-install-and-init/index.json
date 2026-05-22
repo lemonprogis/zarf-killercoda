@@ -1,0 +1,31 @@
+{
+  "title": "Zarf: Install & Initialize a Cluster",
+  "description": "Install the Zarf CLI on Linux and initialize a Kubernetes cluster with the Zarf init package.",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Install the Zarf CLI",
+        "text": "step1.md",
+        "verify": "step1-verify.sh"
+      },
+      {
+        "title": "Initialize the Cluster",
+        "text": "step2.md",
+        "verify": "step2-verify.sh"
+      },
+      {
+        "title": "Inspect the Zarf Deployment",
+        "text": "step3.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
