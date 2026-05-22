@@ -9,6 +9,7 @@ In this scenario you'll build a small package that deploys [**podinfo**](https:/
 
 ## What's been done for you
 
-The background script installed `zarf` and ran `zarf init`, so the cluster is ready.
+The background script installed `zarf` and `k3d`, created a cluster, and ran `zarf init`
+(without the host k3s component). The cluster is ready.
 
 Click **Start**.

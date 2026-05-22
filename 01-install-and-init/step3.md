@@ -1,44 +1,25 @@
-# Inspect the Zarf Deployment
+# Download the Init Package
 
-Now that the cluster is initialized, let's explore what Zarf installed.
+`zarf init` can pull the init package from an OCI registry on demand, but for airgapped
+workflows you'd usually pre-stage it. We'll mirror that pattern here by downloading the
+init package as a standalone tarball first.
 
-## List deployed packages
-
-Zarf tracks every package it has deployed:
+## Download
 
 ```bash
-zarf package list
+zarf tools download-init --output-directory /tmp
 ```{{exec}}
 
-The `init` package shows up here as `init`.
+Zarf picks the init package version that matches your CLI.
 
-## Open the live cluster monitor
-
-Zarf ships with a built-in [k9s](https://k9scli.io/)-style TUI:
+## Check what landed
 
 ```bash
-zarf tools monitor
+ls -lh /tmp/zarf-init-*.tar.zst
 ```{{exec}}
 
-Press `0` to view all namespaces. Use `Ctrl+C` to exit when done.
+That single `.tar.zst` contains everything Zarf needs to bootstrap a cluster: the
+registry image, the agent webhook, optional components like the git server and (on Linux)
+a host k3s install.
 
-## Peek at the registry credentials
-
-The in-cluster registry is private. Zarf stores its credentials and exposes them via:
-
-```bash
-zarf tools get-creds
-```{{exec}}
-
-You'll see push/pull credentials for the registry, plus credentials for the git server and
-logging stack if you installed those components.
-
-## Optional: tear it all down
-
-If you want to start fresh:
-
-```bash
-zarf destroy --confirm
-```
-
-(Don't run this now — the next scenarios assume an initialized cluster.)
+Click **Check** when ready.

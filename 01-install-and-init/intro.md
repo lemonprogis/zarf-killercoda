@@ -6,9 +6,10 @@ single tarball that can be deployed into disconnected or intermittently connecte
 
 ## What you'll do in this scenario
 
-1. Download and install the `zarf` CLI binary
-2. Run `zarf init` against the pre-provisioned Kubernetes cluster
-3. Inspect the in-cluster registry, agent, and Git server that `zarf init` installs
+1. Install the `zarf` CLI
+2. Create a [k3d](https://k3d.io) cluster (k3s running inside Docker)
+3. Download the Zarf init package
+4. Run `zarf init` against the cluster — choosing which optional components to install
+5. Inspect the in-cluster registry and agent that Zarf installed
 
-You already have a single-node Kubernetes cluster ready in this environment. Click **Start**
-to begin.
+Click **Start** to begin.

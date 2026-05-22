@@ -5,11 +5,9 @@ the airgap-native package manager for Kubernetes.
 
 ## Scenarios
 
-| # | Folder | What you'll do |
-|---|--------|----------------|
-| 1 | [`01-install-and-init`](01-install-and-init/) | Install the Zarf CLI, run `zarf init`, inspect the in-cluster registry and agent |
-| 2 | [`02-deploy-retro-arcade`](02-deploy-retro-arcade/) | Deploy the signed `dos-games` OCI package and connect to it in your browser |
-| 3 | [`03-create-package`](03-create-package/) | Author a `zarf.yaml`, discover images, build a `.tar.zst`, and deploy it |
+1. **[`01-install-and-init/`](01-install-and-init/)** — install the Zarf CLI, run `zarf init`, inspect the in-cluster registry and agent
+2. **[`02-deploy-retro-arcade/`](02-deploy-retro-arcade/)** — deploy the signed `dos-games` OCI package and connect to it in your browser
+3. **[`03-create-package/`](03-create-package/)** — author a `zarf.yaml`, discover images, build a `.tar.zst`, and deploy it
 
 Each scenario is self-contained — scenarios 2 and 3 use a `background.sh` to install Zarf
 and initialize the cluster while the user reads the intro, so you don't have to do scenario
@@ -19,7 +17,7 @@ and initialize the cluster while the user reads the intro, so you don't have to 
 
 Killercoda scenarios are folders with a fixed layout:
 
-```
+```text
 <scenario>/
 ├── index.json          # title, description, step list, backend image
 ├── intro.md            # rendered before step 1
@@ -30,7 +28,10 @@ Killercoda scenarios are folders with a fixed layout:
 └── finish.md           # rendered after the last step
 ```
 
-Backend image used: **`kubernetes-kubeadm-1node`** (pre-provisioned single-node cluster).
+Backend image used: **`ubuntu`**. The scenarios install [k3d](https://k3d.io) and create a
+cluster inside Docker, then run `zarf init` against it. We avoid Killercoda's prebuilt
+`kubernetes-kubeadm-1node` image because Zarf's init package includes an optional host k3s
+component that conflicts with an already-running kubeadm cluster.
 
 ## Hosting these scenarios
 
